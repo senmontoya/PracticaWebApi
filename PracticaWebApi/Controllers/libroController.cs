@@ -39,8 +39,7 @@ namespace PracticaWebApi.Controllers
         ///</summary>
         ///<param name="id"></param>
         ///<returns></returns>
-        [HttpGet]
-        [Route("GetById/{id}")]
+        
         
         
 
