@@ -39,9 +39,5 @@ namespace PracticaWebApi.Controllers
         ///</summary>
         ///<param name="id"></param>
         ///<returns></returns>
-        
-        
-        
-
     }
 }

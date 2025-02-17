@@ -10,6 +10,11 @@ builder.Services.AddDbContext<bibliotecaContext>(options => options.UseSqlServer
     (builder.Configuration.GetConnectionString("biblioDbConnection")
     )
 );
+// inyeccion 2
+builder.Services.AddDbContext<bibliotecaContext>(options => options.UseSqlServer
+    (builder.Configuration.GetConnectionString("biblioDamian")
+    )
+);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
