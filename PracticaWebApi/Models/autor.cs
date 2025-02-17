@@ -7,10 +7,12 @@ namespace PracticaWebApi.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        public int id_autor { get; set; }
         [StringLength(50)]
         public string nombre { get; set; }
         [StringLength(50)]
         public string nacionalidad { get; set; }
+        public ICollection<libro> Libros { get; set; }
     }
+
 }

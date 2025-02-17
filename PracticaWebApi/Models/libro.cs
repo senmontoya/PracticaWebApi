@@ -10,5 +10,8 @@ namespace PracticaWebApi.Models
         public int? autor_id { get; set; }
         public int? categoria_id { get; set; }
         public string resumen { get; set; }
+
+        public autor Autor { get; set; }
+
     }
 }

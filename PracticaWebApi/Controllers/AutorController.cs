@@ -25,7 +25,7 @@ namespace PracticaWebApi.Controllers
         [Route("GetById/{id}")]
         public IActionResult GetById(int id)
         {
-            var autor = this._bibliotecaContext.autor.FirstOrDefault(e => e.id == id);
+            var autor = this._bibliotecaContext.autor.FirstOrDefault(e => e.id_autor == id);
 
             if (autor == null)
                 return NotFound(new { message = "Autor no encontrado" });
