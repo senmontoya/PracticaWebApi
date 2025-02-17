@@ -7,9 +7,19 @@ namespace PracticaWebApi.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        public int id_autor { get; set; }
         [StringLength(50)]
         public string nombre { get; set; }
+        [StringLength(50)]
+        public string nacionalidad { get; set; }
+
+    }
+    public class CrearAutorDTO
+    {
+        [Required]
+        [StringLength(50)]
+        public string nombre { get; set; }
+        [Required]
         [StringLength(50)]
         public string nacionalidad { get; set; }
     }

@@ -4,6 +4,7 @@ namespace PracticaWebApi.Models
     public class libro
     {
         [Key]
+
         public int id_libro { get; set; }
         public string titulo { get; set; }
         public int? anio_publicacion { get; set; }

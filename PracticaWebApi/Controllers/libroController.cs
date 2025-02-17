@@ -40,17 +40,6 @@ namespace PracticaWebApi.Controllers
         ///<param name="id"></param>
         ///<returns></returns>
         ///
-        [HttpGet]
-        [Route("GetById/{id}")] 
-        public IActionResult GetById(int id)
-        {
-            libro? libro = (from l in _bibliotecaContexto.libro join a in _bibliotecaContexto.autor on l.autor_id equals a.id where l.id_libro == id select new libro { titulo = l.titulo, autor_id = a.id }).FirstOrDefault();
-            if (libro == null)
-            {
-                return NotFound();
-            }
-            return Ok(libro);
-                
-        }
+        
     }
 }
