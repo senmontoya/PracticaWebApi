@@ -22,5 +22,7 @@ namespace PracticaWebApi.Models
         [Required]
         [StringLength(50)]
         public string nacionalidad { get; set; }
+        public ICollection<libro> Libros { get; set; }
     }
+
 }
