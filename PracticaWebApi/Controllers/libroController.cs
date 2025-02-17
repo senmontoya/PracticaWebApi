@@ -22,7 +22,7 @@ namespace PracticaWebApi.Controllers
         ///<returns></returns>
 
         [HttpGet]
-        [Route("GetAll")]   
+        [Route("GetAll")]
         public IActionResult Get()
         {
             List<libro> libros = (from l in _bibliotecaContexto.libro select l).ToList();
@@ -39,5 +39,18 @@ namespace PracticaWebApi.Controllers
         ///</summary>
         ///<param name="id"></param>
         ///<returns></returns>
+        ///
+        [HttpGet]
+        [Route("GetById/{id}")] 
+        public IActionResult GetById(int id)
+        {
+            libro? libro = (from l in _bibliotecaContexto.libro join a in _bibliotecaContexto.autor on l.autor_id equals a.id where l.id_libro == id select new libro { titulo = l.titulo, autor_id = a.id }).FirstOrDefault();
+            if (libro == null)
+            {
+                return NotFound();
+            }
+            return Ok(libro);
+                
+        }
     }
 }

@@ -8,6 +8,8 @@ namespace PracticaWebApi.Models
         {
 
         }
-       
+
+        public DbSet<autor> autor { get; set; }
+        public DbSet<libro> libro { get; set; }
     }
 }

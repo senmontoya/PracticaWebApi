@@ -6,11 +6,11 @@ namespace PracticaWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BibliotecaController : ControllerBase
+    public class AutorController : ControllerBase
     {
         private readonly bibliotecaContext _bibliotecaContext;
 
-        public BibliotecaController(bibliotecaContext context)
+        public AutorController(bibliotecaContext context)
         {
             _bibliotecaContext = context;
         }
