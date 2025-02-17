@@ -23,6 +23,33 @@ namespace PracticaWebApi.Controllers
             return Ok(listado);
         }
 
+        [HttpPost]
+        [Route("Add")]
+        public IActionResult GuardarAutor([FromBody] CrearAutorDTO autorDTO)
+        {
+            try
+            {
+                if (autorDTO == null)
+                    return BadRequest(new { message = "Datos inválidos" });
+
+                var autorNuevo = new autor
+                {
+                    nombre = autorDTO.nombre,
+                    nacionalidad = autorDTO.nacionalidad
+                    
+                };
+
+                _bibliotecaContext.autor.Add(autorNuevo);
+                _bibliotecaContext.SaveChanges();
+
+                return CreatedAtAction(nameof(GetById), new { id = autorNuevo.id_autor }, autorNuevo);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error interno", error = ex.Message });
+            }
+        }
+
         [HttpGet]
         [Route("GetById/{id}")]
         public IActionResult GetById(int id)
@@ -57,35 +84,6 @@ namespace PracticaWebApi.Controllers
                 });
             }
         }
-
-
-        [HttpPost]
-        [Route("Add")]
-        public IActionResult GuardarAutor([FromBody] CrearAutorDTO autorDTO)
-        {
-            try
-            {
-                if (autorDTO == null)
-                    return BadRequest(new { message = "Datos inválidos" });
-
-                var autorNuevo = new autor
-                {
-                    nombre = autorDTO.nombre,
-                    nacionalidad = autorDTO.nacionalidad
-                    
-                };
-
-                _bibliotecaContext.autor.Add(autorNuevo);
-                _bibliotecaContext.SaveChanges();
-
-                return CreatedAtAction(nameof(GetById), new { id = autorNuevo.id_autor }, autorNuevo);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Error interno", error = ex.Message });
-            }
-        }
-
 
         [HttpPut]
         [Route("Actualizar/{id}")]
